@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/base_view"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="live.faceauth.sdk.ui.PermissionsActivity">
+
+  <View
+      android:layout_width="wrap_content"
+      android:layout_height="0dp"
+      android:layout_weight="1"/>
+
+  <LinearLayout
+      android:id="@+id/permission_rationale"
+      android:layout_width="match_parent"
+      android:orientation="vertical"
+      android:gravity="center_horizontal|center"
+      android:layout_height="wrap_content">
+
+    <TextView
+        android:gravity="center_horizontal|center"
+        android:text="@string/permission_rationale"
+        android:layout_width="match_parent"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:textSize="20sp"
+        android:layout_height="wrap_content"/>
+
+    <Button
+        android:id="@+id/permission_retry_button"
+        android:layout_marginTop="10dp"
+        android:text="@string/ok"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+  </LinearLayout>
+
+  <View
+      android:layout_width="wrap_content"
+      android:layout_height="0dp"
+      android:layout_weight="1"/>
+
+</LinearLayout>

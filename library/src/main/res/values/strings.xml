@@ -1,0 +1,25 @@
+<resources>
+  <string name="app_name">Face Auth SDK</string>
+  <string name="ok">OK</string>
+  <string name="permission_camera_rationale">Please give access to camera to continue registration
+  </string>
+  <string name="no_camera_permission">No camera permission</string>
+  <string name="permission_rationale">Please give access to storage and camera to continue
+    registration
+  </string>
+  <string name="tracker_no_face">No face detected.</string>
+  <string name="tracker_multiple_faces">Multiple faces detected.</string>
+  <string name="tracker_processing_verification">Please stay still. Verification in progress.</string>
+  <string name="tracker_change_expressions">Please change your face expressions.</string>
+  <string name="tracker_smile">Please smile.</string>
+  <string name="tracker_dont_smile">Please don\'t smile.</string>
+  <string name="auth_failed_no_face">Failed to detect a matching face. Press \'Retry\' to click a picture manually and try again.</string>
+  <string name="face_auth_failed">Face Authentication Failed</string>
+  <string name="retry">Retry</string>
+  <string name="cancel">Cancel</string>
+  <string name="processing">Processing…</string>
+  <string name="register_failed_no_face">We couldn\'t detect face. Please take a clear picture.
+  </string>
+
+
+</resources>

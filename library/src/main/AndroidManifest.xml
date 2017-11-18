@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="live.faceauth.sdk">
+
+  <application>
+    <activity
+        android:name="live.faceauth.sdk.ui.RegisterActivity"
+        android:theme="@style/FaceSDKTheme.NoActionBar"/>
+    <activity
+        android:name="live.faceauth.sdk.ui.AuthenticateActivity"
+        android:theme="@style/FaceSDKTheme.NoActionBar"/>
+    <activity
+        android:name="live.faceauth.sdk.ui.RegisterConfirmActivity"
+        android:theme="@style/FaceSDKTheme.NoActionBar"/>
+    <activity android:name="live.faceauth.sdk.ui.PermissionsActivity"
+        android:theme="@style/FaceSDKTheme.NoActionBar">
+    </activity>
+  </application>
+
+</manifest>

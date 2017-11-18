@@ -1,0 +1,48 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:layout_marginTop="16dp"
+    android:layout_marginBottom="16dp">
+
+  <FrameLayout android:layout_width="0dp"
+      android:layout_height="match_parent"
+      android:layout_weight="1">
+
+    <ImageButton
+        android:id="@+id/toggle_camera"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical|left"
+        android:layout_marginLeft="20dp"
+        android:background="@color/transparent"
+        android:src="@drawable/camera_toggle"/>
+
+  </FrameLayout>
+
+  <ImageButton
+      android:id="@+id/button_capture"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:background="@color/transparent"
+      android:src="@drawable/capture_button"/>
+
+  <FrameLayout android:layout_width="0dp"
+      android:layout_height="match_parent"
+      android:layout_weight="1">
+
+    <ImageButton
+        android:id="@+id/button_choose_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical|right"
+        android:layout_marginRight="20dp"
+        android:background="@color/transparent"
+        android:src="@drawable/image_picker"/>
+
+  </FrameLayout>
+
+
+</LinearLayout>

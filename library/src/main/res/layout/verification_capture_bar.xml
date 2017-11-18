@@ -1,0 +1,30 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content" xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:paddingBottom="10dp"
+    android:layout_marginTop="16dp"
+    android:layout_marginBottom="16dp"
+    android:paddingTop="10dp">
+
+  <View android:layout_width="0dp"
+      android:layout_height="match_parent"
+      android:layout_weight="1"/>
+
+  <ImageButton
+      android:id="@+id/button_capture"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:background="@color/transparent"
+      android:src="@drawable/capture_button"/>
+
+  <View android:layout_width="0dp"
+      android:layout_height="match_parent"
+      android:layout_weight="1">
+
+  </View>
+
+
+</LinearLayout>

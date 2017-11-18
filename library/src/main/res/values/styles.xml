@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <style name="FaceSDKTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <item name="colorPrimaryDark">#000000</item>
+  </style>
+
+  <style name="FaceSDKTheme.NoActionBar" parent="Theme.AppCompat.Light.NoActionBar">
+    <item name="colorPrimaryDark">#000000</item>
+  </style>
+</resources>

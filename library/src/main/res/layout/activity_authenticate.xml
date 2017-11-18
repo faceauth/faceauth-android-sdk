@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/topLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000"
+    android:keepScreenOn="true">
+
+  <live.faceauth.sdk.ui.camera.CameraSourcePreview
+      android:id="@+id/preview"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent">
+
+    <live.faceauth.sdk.ui.camera.GraphicOverlay
+        android:id="@+id/faceOverlay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+  </live.faceauth.sdk.ui.camera.CameraSourcePreview>
+
+  <FrameLayout
+      android:id="@+id/bottom_bar"
+      android:layout_gravity="bottom|center_horizontal"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content">
+
+    <include android:id="@+id/capture_bar"
+        layout="@layout/verification_capture_bar"
+        android:visibility="visible"/>
+
+  </FrameLayout>
+
+  <FrameLayout
+      android:layout_width="match_parent"
+      android:padding="16dp"
+      android:background="#72000000"
+      android:layout_height="wrap_content">
+    <TextView
+        android:id="@+id/top_messaging"
+        android:layout_width="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="Take a selfie to authenticate"
+        android:textSize="14sp"
+        android:textColor="#fff"
+        android:layout_height="wrap_content" />
+  </FrameLayout>
+
+</FrameLayout>
