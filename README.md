@@ -84,3 +84,7 @@ protected void onActivityResult(int requestCode, int resultCode, Intent result) 
   super.onActivityResult(requestCode, resultCode, result);
 }
 ```
+
+## Examples
+
+Please see demo app: [FaceAuth Demo](https://github.com/faceauth/faceauth-android-example)
