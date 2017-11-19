@@ -8,7 +8,7 @@ android {
     minSdkVersion 16
     targetSdkVersion 26
     versionCode 1
-    versionName "0.4.1"
+    versionName "0.4.2"
 
     testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
   }
@@ -28,3 +28,5 @@ dependencies {
   implementation 'com.squareup.retrofit2:converter-gson:2.0.2'
   implementation 'com.google.android.gms:play-services-vision:11.4.2'
 }
+
+apply from: 'deploy.gradle'
