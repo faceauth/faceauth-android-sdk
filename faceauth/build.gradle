@@ -7,8 +7,8 @@ android {
   defaultConfig {
     minSdkVersion 16
     targetSdkVersion 26
-    versionCode 1
-    versionName "0.4.2"
+    versionCode 2
+    versionName "0.4.3"
 
     testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
   }
@@ -22,11 +22,11 @@ android {
 }
 
 dependencies {
-  implementation fileTree(include: ['*.jar'], dir: 'libs')
-  implementation 'com.android.support:appcompat-v7:26.1.0'
-  implementation 'com.squareup.retrofit2:retrofit:2.1.0'
-  implementation 'com.squareup.retrofit2:converter-gson:2.0.2'
-  implementation 'com.google.android.gms:play-services-vision:11.4.2'
+  compile fileTree(include: ['*.jar'], dir: 'libs')
+  compile 'com.android.support:appcompat-v7:26.1.0'
+  compile 'com.squareup.retrofit2:retrofit:2.1.0'
+  compile 'com.squareup.retrofit2:converter-gson:2.0.2'
+  compile 'com.google.android.gms:play-services-vision:11.4.2'
 }
 
 apply from: 'deploy.gradle'
