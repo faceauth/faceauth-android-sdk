@@ -1,25 +1,14 @@
 # FaceAuth SDK API Documentation
 ## Installation
-1. Add maven repo url line to project’s gradle file:
-```
-allprojects {
-  repositories {
-    ...
-    maven {
-      url  "https://dl.bintray.com/faceauth/faceauth-android-sdk"
-    }
-  }
-}
-```
-2. Add this line to app’s gradle file `app/build.gradle`:
+1. Add this line to app’s gradle file `app/build.gradle`:
 ```
 implementation 'live.faceauth.sdk:faceauth:0.4.3'
 ```
-3. Get an API key for FaceAuth SDK and add as meta-data in AndroidManifest:
+2. Get an API key for FaceAuth SDK and add as meta-data in AndroidManifest:
 ```
 <meta-data android:name="faceauth-api-key" android:value="<FACE_AUTH_KEY>" />
 ```
-4. Initialize FaceAuth SDK in the MainActivity or MainApplication `onCreate` :
+3. Initialize FaceAuth SDK in the MainActivity or MainApplication `onCreate` :
 ```
 FaceAuth.getInstance().initialize(context);
 ```
