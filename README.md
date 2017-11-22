@@ -4,7 +4,7 @@
 ```
 implementation 'live.faceauth.sdk:faceauth:0.4.3'
 ```
-2. Get an API key for FaceAuth SDK and add as meta-data in AndroidManifest:
+2. Get an API key for FaceAuth SDK at [https://faceauth.live/register](https://faceauth.live/register) and add it as meta-data in AndroidManifest:
 ```
 <meta-data android:name="faceauth-api-key" android:value="<FACE_AUTH_KEY>" />
 ```
