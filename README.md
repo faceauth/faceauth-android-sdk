@@ -1,4 +1,9 @@
 # FaceAuth SDK API Documentation
+
+Website: https://faceauth.live/register
+
+Pricing: We're currently in Beta, so it's free for now. 
+
 ## Installation
 1. Add this line to app’s gradle file `app/build.gradle`:
 ```
