@@ -1,6 +1,6 @@
 # FaceAuth SDK API Documentation
 
-Website: https://faceauth.live/register
+Website: https://faceauth.live
 
 Pricing: We're currently in Beta, so it's free for now. 
 
