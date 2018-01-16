@@ -243,4 +243,10 @@ public class CameraManager {
 
     void updateFaces(SparseArray<FaceInfo> mListeners);
   }
+
+  public static class SimplePictureClickListener implements PictureClickListener {
+    public void onPictureClick(byte[] bytes) {}
+    public void onPictureSave(Uri uri) {}
+    public void updateFaces(SparseArray<FaceInfo> mListeners) {}
+  }
 }

@@ -9,6 +9,7 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 
+import android.util.Log;
 import java.io.DataOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -19,6 +20,8 @@ import java.util.HashMap;
 import javax.net.ssl.HttpsURLConnection;
 
 public class NetworkFragment extends Fragment {
+  private static final String TAG = "NetworkFragment";
+
   private DownloadCallback<Result> mCallback;
   private DownloadTask mDownloadTask;
 
@@ -84,36 +87,16 @@ public class NetworkFragment extends Fragment {
   }
 
   private class DownloadTask extends AsyncTask<Request, Integer, NetworkFragment.Result> {
-
-    @Override
-    protected void onPreExecute() {
-      if (mCallback != null) {
-        NetworkInfo networkInfo = mCallback.getActiveNetworkInfo();
-        if (networkInfo == null || !networkInfo.isConnected() ||
-            (networkInfo.getType() != ConnectivityManager.TYPE_WIFI
-                && networkInfo.getType() != ConnectivityManager.TYPE_MOBILE)) {
-          mCallback.onComplete(new Result(new IOException("No internet connection.")));
-          cancel(true);
-        }
-      }
-    }
-
     @Override
     protected Result doInBackground(Request... requests) {
       try {
         return performRequest(requests[0]);
       }  catch(Exception e) {
+        Log.e(TAG, e.getMessage(), e);
         return new Result(e);
       }
     }
 
-    @Override
-    protected void onProgressUpdate(Integer... values) {
-      super.onProgressUpdate(values);
-      if (values.length >= 2) {
-        mCallback.onProgressUpdate(values[0], values[1]);
-      }
-    }
 
     @Override
     protected void onPostExecute(Result result) {
@@ -123,7 +106,6 @@ public class NetworkFragment extends Fragment {
         } else if (result.mResultValue != null) {
           mCallback.onComplete(result);
         }
-        mCallback.finishDownloading();
       }
     }
 
@@ -136,10 +118,16 @@ public class NetworkFragment extends Fragment {
         String method = request.method;
 
         connection = (HttpsURLConnection) url.openConnection();
+        connection.setRequestMethod(method);
+
+        if (request.headers != null) {
+          for (HashMap.Entry<String, String> pair : request.headers.entrySet()) {
+            connection.setRequestProperty(pair.getKey(), pair.getValue());
+          }
+        }
+
         connection.setReadTimeout(3000);
         connection.setConnectTimeout(3000);
-        connection.setRequestMethod(method);
-        connection.setDoInput(true);
 
         if (request.postData != null) {
           connection.setDoOutput(true);
@@ -148,23 +136,15 @@ public class NetworkFragment extends Fragment {
           wr.write( postData );
         }
 
-        if (request.headers != null) {
-          for (HashMap.Entry<String, String> pair : request.headers.entrySet()) {
-            connection.setRequestProperty(pair.getKey(), pair.getValue());
-          }
-        }
-
         connection.connect();
-        publishProgress(DownloadCallback.Progress.CONNECT_SUCCESS);
+
         int responseCode = connection.getResponseCode();
-        if (responseCode != HttpsURLConnection.HTTP_OK) {
+        if (responseCode != HttpsURLConnection.HTTP_OK && responseCode != HttpsURLConnection.HTTP_UNAUTHORIZED) {
           throw new IOException("HTTP error code: " + responseCode);
         }
         stream = connection.getInputStream();
-        publishProgress(DownloadCallback.Progress.GET_INPUT_STREAM_SUCCESS, 0);
         if (stream != null) {
           result = readStream(stream, 500);
-          publishProgress(DownloadCallback.Progress.PROCESS_INPUT_STREAM_SUCCESS, 0);
         }
       } finally {
         if (stream != null) {
@@ -186,7 +166,6 @@ public class NetworkFragment extends Fragment {
       while (numChars < maxLength && readSize != -1) {
         numChars += readSize;
         int pct = (100 * numChars) / maxLength;
-        publishProgress(DownloadCallback.Progress.PROCESS_INPUT_STREAM_IN_PROGRESS, pct);
         readSize = reader.read(buffer, numChars, buffer.length - numChars);
       }
       if (numChars != -1) {
