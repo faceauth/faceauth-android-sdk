@@ -38,4 +38,9 @@ public class FaceAuthConfig {
      * If true, a rectangle is shown around the face in the live camera feed.
      */
     public boolean showFaceRectangle = true;
+
+    /**
+     * The BASE_URL for the API (to manage staging/production etc.)
+     */
+    public String baseUrl = "https://staging.faceauth.live";
 }
